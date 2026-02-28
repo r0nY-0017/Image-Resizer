@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Resizer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="glass-card">
+  <h2>
+    🖼️ Image Resizer
+  </h2>
+  <div class="sub">Resize your own image </div>
+
+  <input type="file" id="fileInput" accept="image/*">
+
+  <!-- Upload Box -->
+  <div class="upload-box" id="uploadTrigger">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="17 8 12 3 7 8" />
+      <line x1="12" y1="3" x2="12" y2="15" />
+    </svg>
+    <p><strong>Click to upload</strong> or drag & drop</p>
+    <small>PNG, JPG, WEBP · Max 10MB</small>
+  </div>
+
+  <!-- Preview Container -->
+  <div class="preview-container">
+    <div class="preview-header">
+      <div class="preview-title">🔍 Image Preview</div>
+      <span class="badge waiting" id="statusBadge">no image</span>
+    </div>
+
+    <!-- Image Display -->
+    <div class="image-wrapper" id="imageWrapper">
+      <div class="placeholder" id="placeholder">
+        <span style="font-size: 1.2rem;">📸</span><br>
+        No image selected
+      </div>
+      <img id="previewImage" style="display: none;" alt="Preview">
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="dimension-inputs">
+      <div class="input-group">
+        <label>
+          📐 Width (px)
+          <span class="original-size-badge" id="originalWidth">original: --</span>
+        </label>
+        <input type="number" id="widthInput" placeholder="Width" min="10" value="400">
+      </div>
+      <div class="input-group">
+        <label>
+          📐 Height (px)
+          <span class="original-size-badge" id="originalHeight">original: --</span>
+        </label>
+        <input type="number" id="heightInput" placeholder="Height" min="10" value="300">
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="btn-primary" id="resizeBtn" disabled>
+        <span>🔄</span> Resize Image
+      </button>
+      <button class="btn-secondary" id="clearBtn">
+        <span>🗑️</span> Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- Download Section -->
+  <div class="download-section hidden" id="downloadSection">
+    <a href="#" class="download-btn" id="downloadBtn" download>
+      ⬇️ Download Resized Image
+    </a>
+    <div style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #0369a1;" id="downloadInfo"></div>
+    <div style="text-align: center; margin-top: 5px; font-size: 0.8rem; color: #64748b;" id="tempMessage"></div>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
